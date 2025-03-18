@@ -1,21 +1,42 @@
-let listaDeAmigos = [];
+let amigos = [];
 
-function adicionarNome() {
-    let nome = document.getElementById('amigo').value;
+function adicionarAmigo() {
+    const nome = document.getElementById("amigo").value.trim();
     if (nome === "") {
         alert("DIGITE UM NOME VÁLIDO");
         return;
     }
-    listaDeAmigos.push(nome);
-    document.getElementById('listaAmigos').innerHTML = listaDeAmigos.join('<br>');
-    document.getElementById('amigo').value = "";
+    
+    amigos.push(nome);
+    atualizarLista();
 }
 
-function sortear() {
-    if (listaDeAmigos.length === 0) {
+function atualizarLista() {
+    const lista = document.getElementById("listaAmigos");
+    lista.innerHTML = "";
+
+    amigos.forEach((amigo) => {
+        const li = document.createElement("li");
+        li.textContent = amigo;
+        lista.appendChild(li);
+    });
+
+    document.getElementById("amigo").value = "";
+}
+
+function sortearAmigo() {
+    if (amigos.length === 0) {
         alert("DIGITE UM NOME VÁLIDO");
         return;
     }
-    let sorteio = Math.floor(Math.random() * listaDeAmigos.length);
-    document.getElementById('resultado').innerHTML = `Sorteado: ${listaDeAmigos[sorteio]}`;
+
+    const indiceSorteado = Math.floor(Math.random() * amigos.length);
+    const amigoSorteado = amigos[indiceSorteado];
+
+    exibirResultado(amigoSorteado);
+}
+
+function exibirResultado(amigoSorteado) {
+    const resultado = document.getElementById("resultado");
+    resultado.innerHTML = `Amigo Sorteado: ${amigoSorteado}`;
 }
