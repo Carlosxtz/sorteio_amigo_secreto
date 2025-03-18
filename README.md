@@ -62,3 +62,4 @@ Este é um projeto simples em **JavaScript**, **HTML** e **CSS**, que permite cr
    - Clique em **Sortear Amigo** e o sistema exibirá o nome sorteado na seção de resultado.
 
 ---
+## ESSE README.MD FOI FEITO COM A AJUDA DO CHATGPT.
